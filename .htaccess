@@ -1,0 +1,26 @@
+Options -Indexes +FollowSymLinks
+RewriteEngine On
+RewriteBase /
+# exclude any paths that are not codeigniter-app related
+RewriteCond %{REQUEST_URI} !^/server-status
+RewriteCond %{REQUEST_URI} !^/server-info
+RewriteCond %{REQUEST_URI} !^/docs
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+<IfModule mod_php5.c>
+RewriteRule ^(.*)$ index.php/$1 [L]
+</IfModule>
+# the following is for rewritting under FastCGI
+<IfModule !mod_php5.c>
+RewriteRule ^(.*)$ index.php?/$1 [L]
+</IfModule>
+
+#Cache Pictures Speed Load Site
+<ifmodule mod_expires.c>
+	<Filesmatch "\.(jpg|jpeg|png|gif|js|css|swf|ico|woff|mp3)$">
+	    ExpiresActive on
+	    ExpiresDefault "access plus 2 days"
+	</Filesmatch>
+</ifmodule>
+
+
