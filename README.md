@@ -13,8 +13,6 @@ Youtube Music Engine have the technology "Radio Mode": the user can discover new
 
 -Very easy to use and install
 
--No database is required (Optional).
-
 -Codeigniter Framework
 
 -Responsive Design
