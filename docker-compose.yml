@@ -2,7 +2,7 @@ version: '2'
 services:
   mysql:
     build: ./.docker/mysql
-    user: ${UID}:${GUID}
+    user: "${UID}:${GID}"
     environment:
       MYSQL_ROOT_PASSWORD: pass
       MYSQL_DATABASE: music
@@ -15,7 +15,7 @@ services:
       - 8080:8080
   php:
     build: ./.docker/php
-    user: ${UID}:${GUID}
+    user: "${UID}:${GID}"
     ports:
       - '80:80'
     volumes:
