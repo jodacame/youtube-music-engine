@@ -1,0 +1,26 @@
+version: '2'
+services:
+  mysql:
+    build: ./.docker/mysql
+    user: ${UID}:${GUID}
+    environment:
+      MYSQL_ROOT_PASSWORD: pass
+      MYSQL_DATABASE: music
+    volumes:
+      - .docker/mysql/db:/var/lib/mysql
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+  php:
+    build: ./.docker/php
+    user: ${UID}:${GUID}
+    ports:
+      - '80:80'
+    volumes:
+      - .:/var/www/html
+    depends_on:
+      - mysql
+volumes:
+  db:
