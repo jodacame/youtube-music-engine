@@ -479,11 +479,10 @@ class Music extends MY_Controller
 
 
     /* AJAX */
-    public function search($query, $return = false)
+    public function search()
     {
         //$this->output->enable_profiler(TRUE);
-        if (!$return)
-            $query = $this->input->get("query");
+        $query = $this->input->get("query");
         $data['search'] = json_decode(searchLastFm($query));
         $data['query'] = $query;
         if ($data['search']->error) {
@@ -502,7 +501,7 @@ class Music extends MY_Controller
         return $this->load->view(getTemplate('nowPlaying'), $data, $return);
     }
 
-    public function searchArtist($query)
+    public function searchArtist()
     {
 
         $query = $this->input->get("query");
@@ -757,7 +756,7 @@ class Music extends MY_Controller
     }
 
 
-    public function getYoutube($track, $artist)
+    public function getYoutube()
     {
         $json['ads'] = '';
         $adsActive = false;

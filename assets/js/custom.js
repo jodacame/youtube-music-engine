@@ -2174,7 +2174,10 @@ function loadNewVideo(id, startSeconds, quality, ads) {
             videoId: id,
             suggestedQuality: youtube_quality,
             playerVars: {
-                'controls': youtube_control, 'autoplay': 1, 'html5': 1
+                controls: youtube_control,
+                autoplay: 1,
+                playsinline: 1,
+                origin: base_url
             },
             events: {
                 'onReady': onYouTubePlayerReady

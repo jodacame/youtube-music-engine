@@ -18,3 +18,4 @@ application/logs/*
 #Docker
 /.docker/mysql/db/
 /.env
+/cache/*.cache
