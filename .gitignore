@@ -17,3 +17,4 @@ application/logs/*
 
 #Docker
 /.docker/mysql/db/
+/.env

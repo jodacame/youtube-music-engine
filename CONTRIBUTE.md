@@ -11,14 +11,13 @@ su $USER -
 ```
 
 ### Setup
+1. Copy `.env.dist` file to `.env` and update settings
+    > **TIP:* ```$ cp .env.dist .env```
+1. Run `$ echo "DOCKER_UID=$UID" >> .env`
+    > **TIP:** Or add `DOCKER_UID=1000` to the `.env` file
 1. `docker-compose up -d`
-> **Note:** Thanks https://github.com/naga3/docker-lamp
 
-#### Run
-1. `UID=${UID} GID=${GID} docker-compose up`
-> **NOTE:** add `-d` argument to run in background
-
-#### Server
-> **NOTE:** MySql hostname is "mysql" not ~~localhost~~
+#### Server Thanks https://github.com/naga3/docker-lamp
 * Now you can access local server by entering [http://172.18.0.1](http://172.18.0.1)
 * MySQL administration page is [http://172.18.0.1:8080](http://172.18.0.1:8080)
+> **NOTE:** MySql hostname is "mysql" not ~~localhost~~

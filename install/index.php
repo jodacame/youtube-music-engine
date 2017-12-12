@@ -104,8 +104,8 @@ if (isset($_POST['btn-install'])) {
           <legend><i class="fa fa-gears"></i> Setup Requirements</legend>
           <div class="row" style="color:#757575;line-height:30px;">
                 <div class="col-xs-12">
-                    <span class="label label-<?php if (extension_loaded('mysql')) { echo "success"; } else { echo "danger"; } ?>" style="width:150px;display:inline-block;margin-right:10px;">Required</span>
-                    MYSQL 5.0 +
+                    <span class="label label-<?php if (extension_loaded('mysqli') || extension_loaded('mysql')) { echo "success"; } else { echo "danger"; } ?>" style="width:150px;display:inline-block;margin-right:10px;">Required</span>
+                    MySQLi or MYSQL 5.0 +
                 </div>
 
                 <div class="col-xs-12">
@@ -115,10 +115,6 @@ if (isset($_POST['btn-install'])) {
                 <div class="col-xs-12">
                     <span class="label label-<?php if (extension_loaded('curl')) { echo "success"; } else { echo "danger"; } ?>" style="width:150px;display:inline-block;margin-right:10px;">Required</span>
                     Curl Module
-                </div>
-                <div class="col-xs-12">
-                    <span class="label label-<?php if (extension_loaded('mysqli')) { echo "success"; } else { echo "danger"; } ?>" style="width:150px;display:inline-block;margin-right:10px;">Required</span>
-                    MYSQLi Extension
                 </div>
                 <div class="col-xs-12">
                     <span class="label label-<?php if (ini_get('allow_url_fopen')) { echo "success"; } else { echo "danger"; } ?>" style="width:150px;display:inline-block;margin-right:10px;">Required</span>
