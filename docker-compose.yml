@@ -1,21 +1,25 @@
 version: '2'
 services:
   mysql:
-    build: ./.docker/mysql
-    user: "${UID}:${GID}"
-    environment:
-      MYSQL_ROOT_PASSWORD: pass
-      MYSQL_DATABASE: music
+    build:
+      context: ./.docker/mysql
+      args:
+        userid: $DOCKER_UID
+
     volumes:
       - .docker/mysql/db:/var/lib/mysql
+    env_file:
+      - .env
   adminer:
     image: adminer
     restart: always
     ports:
       - 8080:8080
   php:
-    build: ./.docker/php
-    user: "${UID}:${GID}"
+    build:
+      context: ./.docker/php
+      args:
+        userid: $DOCKER_UID
     ports:
       - '80:80'
     volumes:
