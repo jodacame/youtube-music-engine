@@ -974,7 +974,7 @@ class Music extends MY_Controller
 
     }
 
-    public function getArtistInfo($artist, $return = false)
+    public function getArtistInfo($artist = false, $return = false)
     {
 
         if ($this->input->get("artist") != '')
